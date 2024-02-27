@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Styled Table</title>
+	<style>
+        #customers {
+          font-family: Arial, Helvetica, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+
+        #customers td, #customers th {
+          border: 1px solid #ddd;
+          padding: 4px;
+        }
+
+        #customers tr:nth-child(even){background-color: #f2f2f2;}
+        #customers th {
+          padding-top: 8px;
+          padding-bottom: 8px;
+          text-align: left;
+          background-color: #4A96D2;
+          color: white;
+        }
+
+        body{
+        padding-top:90px;
+		padding-bottom:40px;
+        }
+
+    </style>
+</head>
+<body>
+
+<table id="customers">
+	<thead>
+	<tr>
+		<th>Primer nombre</th>
+		<th>Apellido</th>
+		<th>Correo electronico</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr th:each="employee : ${employees}">
+		<td th:text="${employee.firstName}"></td>
+		<td th:text="${employee.lastName}"></td>
+		<td th:text="${employee.email}"></td>
+	</tr>
+	</tbody>
+</table>
+</body>
+</html>
